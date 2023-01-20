@@ -9,7 +9,6 @@ namespace SampleApp.Services
     {
         private readonly ILogger<EmailSender> _logger;
         private readonly EmailSenderOptions _options;
-        private const string SenderOptionsSectionName = "EmailSenderOptions";
 
         public EmailSender(
             ILogger<EmailSender> logger,
@@ -17,7 +16,7 @@ namespace SampleApp.Services
         {
             _logger = logger;
             _options = configuration
-                .GetSection(SenderOptionsSectionName)
+                .GetSection(EmailSenderOptions.Section)
                 .Get<EmailSenderOptions>();
         }
 
